@@ -10,6 +10,7 @@
     函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。
 
     ```
+    
     foo::bar;
     // 等同于
     bar.bind(foo);
@@ -20,6 +21,7 @@
     function hasOwn(obj, key) {
     return obj::hasOwnProperty(key);
     }
+
     ```
 
 3. 递归本质上是一种循环操作。纯粹的函数式编程语言没有循环操作命令，所有的循环都用递归实现，这就是为什么尾递归对这些语言极其重要。对于其他支持“尾调用优化”的语言（比如 Lua，ES6），只需要知道循环可以用递归代替，而一旦使用递归，就最好使用尾递归。
@@ -27,6 +29,7 @@
 4. 尾递归优化
 
 ```
+
     function tco(f) {
         var value;
         var active = false;
@@ -53,10 +56,13 @@
         }
     });
     console.log(sum(1, 100000000)) 
+
 ```
 
 4. class 
+
 ```
+
     class Logger {
         constructor() {
             this.printName = this.printName.bind(this);  //一个比较简单的解决方法是，在构造方法中绑定this，这样就不会找不到print方法了。
@@ -72,10 +78,13 @@
     const logger = new Logger();
     const { printName } = logger;
     printName(); // TypeError: Cannot read property 'print' of undefined
+
 ```
+
     继承
 
     ```
+
     class ColorPoint extends Point {
         constructor(x, y, color) {
             super(x, y); // 调用父类的constructor(x, y)
