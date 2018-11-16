@@ -10,7 +10,7 @@
     函数绑定运算符是并排的两个冒号（::），双冒号左边是一个对象，右边是一个函数。该运算符会自动将左边的对象，作为上下文环境（即this对象），绑定到右边的函数上面。
 
     ```
-    
+
     foo::bar;
     // 等同于
     bar.bind(foo);
@@ -79,11 +79,7 @@
     const { printName } = logger;
     printName(); // TypeError: Cannot read property 'print' of undefined
 
-```
-
     继承
-
-    ```
 
     class ColorPoint extends Point {
         constructor(x, y, color) {
